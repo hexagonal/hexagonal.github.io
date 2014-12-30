@@ -1,4 +1,4 @@
 hexagonal.github.io
 ===================
 
-User Pages
+User Pages for the Hexagonal Empire
