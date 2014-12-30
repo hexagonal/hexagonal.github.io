@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="hexempire">
+<html ng-app="hexangular">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     
     <!-- The "perfect" viewport (according to PPK) -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <base href="/">    
 
     <title>Hexagonal Empire</title>
     
@@ -24,8 +26,14 @@
     <!-- Angular Material 0.6 -->
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
 
-    <!-- Main -->
-    <script src="app/app.module.js"></script>    
+    <!-- hexempire dependencies -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
+    
+    <!-- hexempire -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/app.route.js"></script>
   </head>
   <body>
     <!-- Example Angular Material toolbar -->
@@ -34,7 +42,7 @@
         <div class="md-toolbar-tools">
           <span>Hexagonal Empire</span>
           <span flex></span>
-          <md-button href="https://github.com/hexagonal/hexagonal.github.io" class="md-button-colored">
+          <md-button href="https://github.com/hexagonal/hexagonal.github.io">
             <!-- Not ready for prime time -->
             <!--<md-icon icon="img/icons/ic_launch_24px.svg"></md-icon>-->
             <span>View on GitHub</span>
@@ -42,7 +50,7 @@
         </div>
       </md-toolbar>
       <md-content class="md-padding">
-        This page uses <a href="https://material.angularjs.org">Angular Material</a>.
+        <ng-view></ng-view>
       </md-content>
     </div>
   </body>
