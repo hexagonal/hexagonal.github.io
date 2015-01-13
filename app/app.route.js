@@ -6,19 +6,27 @@
     .config(configRoutes);
   
   configRoutes.$inject = ['$routeProvider'];
-  function configRoutes($routeProvider) {
-    var homeRoute = {
-      templateUrl: 'app/home.html',
-      controller: homeController,
-      controllerAs: 'vm'
-    };
-    
+  function configRoutes($routeProvider) {    
     $routeProvider
-      .when('/', homeRoute)
-      .when('/index.html', homeRoute);
+    
+      .when('/about', {
+        templateUrl: 'app/about.html',
+        controller: aboutController,
+        controllerAs: 'vm'
+      })
+    
+      .otherwise({
+        templateUrl: 'app/home.html',
+        controller: homeController,
+        controllerAs: 'vm'
+      });
   }
   
   function homeController() {
     console.log('homeController called.');
   }
+  
+  function aboutController() {
+    console.log('aboutController called.');
+  }  
 })();
