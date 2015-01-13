@@ -34,24 +34,32 @@
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
     <script src="app/app.route.js"></script>
+    <script src="app/appBar.controller.js"></script>
   </head>
   <body>
     <!-- Example Angular Material toolbar -->
     <div layout="column" layout-fill>
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary" ng-controller="AppBarController as appBar">
         <div class="md-toolbar-tools">
+          <md-button ng-click="appBar.toggleNavDrawer()">          
+            <img src="./img/icons/ic_menu_24px.svg" style="vertical-align: -6px">
+          </md-button>
           <span>Hexagonal Empire</span>
           <span flex></span>
-          <md-button href="https://github.com/hexagonal/hexagonal.github.io">
-            <!-- Not ready for prime time -->
-            <!--<md-icon icon="img/icons/ic_launch_24px.svg"></md-icon>-->
-            <span>View on GitHub</span>
+          <md-button href="https://github.com/hexagonal/hexagonal.github.io">            
+            <span><img src="./img/icons/ic_launch_24px.svg" style="vertical-align: -6px">GitHub</span>
           </md-button>
         </div>
       </md-toolbar>
-      <md-content class="md-padding">
-        <ng-view></ng-view>
-      </md-content>
+      <md-sidenav md-component-id="navDrawer">
+          <md-button href="home">            
+            Home
+          </md-button>
+          <md-button href="about">            
+            About
+          </md-button>
+      </md-sidenav>
+      <ng-view></ng-view>
     </div>
   </body>
 </html>
