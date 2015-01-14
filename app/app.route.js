@@ -9,24 +9,28 @@
   function configRoutes($routeProvider) {    
     $routeProvider
     
+      .when('/', {
+        templateUrl: 'app/home.html',
+        controller: homeController,
+        controllerAs: 'vm'
+      })    
+    
       .when('/about', {
         templateUrl: 'app/about.html',
         controller: aboutController,
         controllerAs: 'vm'
       })
     
-      .otherwise({
-        templateUrl: 'app/home.html',
-        controller: homeController,
-        controllerAs: 'vm'
-      });
+      .otherwise('/');
   }
   
   function homeController() {
-    console.log('homeController called.');
+    var vm = this;
+    vm.pageTitle = "Home";
   }
   
   function aboutController() {
-    console.log('aboutController called.');
-  }  
+    var vm = this;
+    vm.pageTitle = "About";
+  }
 })();
