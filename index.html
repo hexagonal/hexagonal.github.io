@@ -52,12 +52,10 @@
         </div>
       </md-toolbar>
       <md-sidenav md-component-id="navDrawer">
-          <md-button href="home">            
-            Home
-          </md-button>
-          <md-button href="about">            
-            About
-          </md-button>
+        <div layout="column">
+          <md-button href="home">Home</md-button>
+          <md-button href="about">About</md-button>
+        </div>
       </md-sidenav>
       <ng-view></ng-view>
     </div>
