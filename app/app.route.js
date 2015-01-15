@@ -5,20 +5,20 @@
     .module('hexangular')
     .config(configRoutes);
   
-  configRoutes.$inject = ['$routeProvider'];
+  configRoutes.$inject = ['$routeProvider',];
   function configRoutes($routeProvider) {    
     $routeProvider
     
       .when('/', {
         templateUrl: 'app/home.html',
-        controller: homeController,
-        controllerAs: 'vm'
+        controller: HomeCtrl,
+        controllerAs: 'home'
       })    
     
       .when('/about', {
         templateUrl: 'app/about.html',
-        controller: aboutController,
-        controllerAs: 'vm'
+        controller: AboutCtrl,
+        controllerAs: 'about'
       })
     
 //      .when('/codebreaker', {
@@ -30,13 +30,15 @@
       .otherwise('/');
   }
   
-  function homeController() {
+  HomeCtrl.$inject = ['page'];
+  function HomeCtrl(page) {
     var vm = this;
-    vm.pageTitle = "Home";
+    page.title = 'Home';
   }
   
-  function aboutController() {
+  HomeCtrl.$inject = ['page'];
+  function AboutCtrl(page) {
     var vm = this;
-    vm.pageTitle = "About";
+    page.title = 'About';
   }
 })();

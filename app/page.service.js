@@ -3,16 +3,9 @@
 
   angular
     .module('hexangular')
-    .factory('page', page);
+    .service('page', Page);
   
-  function page() {    
-    console.log('Page service loaded.');
-    
-    var getTitle = function() { return this.title; };
-    
-    return {
-      title: 'Ned',
-      getTitle: getTitle
-    };
+  function Page() {    
+      this.title = '';
   }
 })();

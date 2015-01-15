@@ -9,7 +9,7 @@
     
     <base href="/">    
 
-    <title>{{main.pageTitle}}</title>
+    <title ng-bind="main.page.title">Hexagonal Empire</title>
     
     <!-- Roboto font -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic">
@@ -47,7 +47,7 @@
           <md-button ng-click="appBar.toggleNavDrawer()">     
             <img src="./img/icons/ic_menu_24px.svg" style="vertical-align: -6px">
           </md-button>
-          <span>Hexagonal Empire</span>
+          <span ng-bind="appBar.page.title">Hexagonal Empire</span>
           <span flex></span>
           <md-button href="https://github.com/hexagonal/hexagonal.github.io">            
             <span><img src="./img/icons/ic_launch_24px.svg" style="vertical-align: -6px">GitHub</span>
