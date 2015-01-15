@@ -21,6 +21,12 @@
         controllerAs: 'vm'
       })
     
+//      .when('/codebreaker', {
+//        templateUrl: 'app/codebreaker/codebreaker.html',
+//        controller: CodebreakerCtrl,
+//        controllerAs: 'codebreaker'
+//      })
+//    
       .otherwise('/');
   }
   

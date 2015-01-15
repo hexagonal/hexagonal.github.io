@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="hexangular">
+<html ng-app="hexangular" ng-controller="MainCtrl as main">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -9,7 +9,7 @@
     
     <base href="/">    
 
-    <title>Hexagonal Empire</title>
+    <title>{{main.pageTitle}}</title>
     
     <!-- Roboto font -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic">
@@ -26,22 +26,25 @@
     <!-- Angular Material 0.6 -->
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
 
-    <!-- hexempire dependencies -->
+    <!-- hexangular dependencies -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-resource.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
     
-    <!-- hexempire -->
+    <!-- hexangular -->
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
     <script src="app/app.route.js"></script>
+    <script src="app/page.service.js"></script>
+    <script src="app/main.controller.js"></script>
     <script src="app/appBar.controller.js"></script>
+    <script src="app/codebreaker/codebreaker.controller.js"></script>
   </head>
   <body>
     <!-- Example Angular Material toolbar -->
     <div layout="column" layout-fill>
-      <md-toolbar class="md-primary" ng-controller="AppBarController as appBar">
+      <md-toolbar class="md-primary" ng-controller="AppBarCtrl as appBar">
         <div class="md-toolbar-tools">
-          <md-button ng-click="appBar.toggleNavDrawer()">          
+          <md-button ng-click="appBar.toggleNavDrawer()">     
             <img src="./img/icons/ic_menu_24px.svg" style="vertical-align: -6px">
           </md-button>
           <span>Hexagonal Empire</span>
@@ -53,6 +56,8 @@
       </md-toolbar>
       <md-sidenav md-component-id="navDrawer">
         <div layout="column">
+          <md-button href="codebreaker">Codebreaker</md-button>
+          <md-divider></md-divider>
           <md-button href="home">Home</md-button>
           <md-button href="about">About</md-button>
         </div>

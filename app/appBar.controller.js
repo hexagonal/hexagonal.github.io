@@ -3,10 +3,10 @@
 
   angular
     .module('hexangular')
-    .controller('AppBarController', AppBar);
+    .controller('AppBarCtrl', AppBarCtrl);
   
-  AppBar.$inject = ['$mdSidenav'];
-  function AppBar($mdSidenav) {
+  AppBarCtrl.$inject = ['$mdSidenav'];
+  function AppBarCtrl($mdSidenav) {
     var vm = this;
     
     vm.toggleNavDrawer = function () {
