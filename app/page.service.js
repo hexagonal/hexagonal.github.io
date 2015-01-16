@@ -3,9 +3,9 @@
 
   angular
     .module('hexangular')
-    .service('page', Page);
+    .factory('page', Page);
   
   function Page() {    
-      this.title = '';
+      return { title: '' };
   }
 })();
