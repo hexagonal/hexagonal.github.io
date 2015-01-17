@@ -3,7 +3,8 @@
 
   angular
     .module('hexangular',
-            ['ngMaterial',
+            ['firebase',
+             'ngMaterial',
              'ngResource',
              'ngRoute']);
 })();

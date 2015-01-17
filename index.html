@@ -9,26 +9,26 @@
     
     <base href="/">    
 
-    <title ng-bind="main.page.title">Hexagonal Empire</title>
+    <title>Hexagonal Empire</title>
     
     <!-- Roboto font -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic">
-
-    <!-- Angular Material CSS 0.6 -->
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
     
-    <!-- Angular Material dependencies -->
-    <script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.min.js"></script>
+    <!-- AngularJS -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
-
-    <!-- Angular Material 0.6 -->
-    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
-
-    <!-- hexangular dependencies -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-resource.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>    
+    
+    <!-- Angular Material -->
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
+    <script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script>
     
     <!-- hexangular -->
     <script src="app/app.module.js"></script>
@@ -45,7 +45,7 @@
     <div layout="column" layout-fill>
       <md-toolbar class="md-primary" ng-controller="AppBarCtrl as appBar">
         <div class="md-toolbar-tools">
-          <md-button ng-click="appBar.toggleNavDrawer()">     
+          <md-button aria-label="Navigation" ng-click="appBar.toggleNavDrawer()">     
             <img src="./img/icons/ic_menu_24px.svg" style="vertical-align: -6px">
           </md-button>
           <span ng-bind="appBar.page.title">Hexagonal Empire</span>
@@ -57,6 +57,8 @@
       </md-toolbar>
       <md-sidenav md-component-id="navDrawer">
         <div layout="column">
+          <md-button ng-click="main.login()">Login</md-button>
+          <md-divider></md-divider>
           <md-button href="codebreaker">Codebreaker</md-button>
           <md-divider></md-divider>
           <md-button href="home">Home</md-button>

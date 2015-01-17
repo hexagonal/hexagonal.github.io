@@ -5,13 +5,14 @@
     .module('hexangular')
     .factory('storage', Storage);
   
-  function Storage() {
+  Storage.$inject = ['$window'];
+  function Storage($window) {
     var save = function (name, model) {
-      localStorage.setItem(name, JSON.stringify(model));
+      $window.localStorage.setItem(name, $window.JSON.stringify(model));
     };
     
     var load = function (name) {
-      return JSON.parse(localStorage.getItem(name));
+      return $window.JSON.parse($window.localStorage.getItem(name));
     };
     
     return {
