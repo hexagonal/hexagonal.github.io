@@ -34,11 +34,13 @@
   function HomeCtrl(page) {
     var vm = this;
     page.title = 'Home';
+    page.closeNav();
   }
   
   HomeCtrl.$inject = ['page'];
   function AboutCtrl(page) {
     var vm = this;
     page.title = 'About';
+    page.closeNav();
   }
 })();

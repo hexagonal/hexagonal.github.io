@@ -44,7 +44,7 @@
     <div layout="column" layout-fill>
       <md-toolbar class="md-primary" ng-controller="AppBarCtrl as appBar">
         <div class="md-toolbar-tools">
-          <md-button aria-label="Navigation" ng-click="appBar.toggleNavDrawer()">     
+          <md-button aria-label="Navigation" ng-click="appBar.toggleNav()">     
             <img src="./img/icons/ic_menu_24px.svg" style="vertical-align: -6px">
           </md-button>
           <span ng-bind="appBar.page.title">Hexagonal Empire</span>
@@ -54,7 +54,7 @@
           </md-button>
         </div>
       </md-toolbar>
-      <md-sidenav md-component-id="navDrawer">
+      <md-sidenav md-component-id="mainNav">
         <div layout="column">
           <md-button ng-hide="main.signedIn" ng-click="main.signIn()">Sign in</md-button>
           <md-button ng-show="main.signedIn" ng-click="main.signOut()">Sign out</md-button>

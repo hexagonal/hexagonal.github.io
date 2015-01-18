@@ -5,8 +5,8 @@
     .module('hexangular')
     .factory('auth', auth);
   
-  auth.$inject = ['$window', '$firebase', '$firebaseAuth','$q'];
-  function auth($window, $firebase, $firebaseAuth, $q) {
+  auth.$inject = ['$window', '$firebaseAuth','$q'];
+  function auth($window, $firebaseAuth, $q) {
     var fbUrl = 'https://hexagonal.firebaseio.com';
     
     var vm = {

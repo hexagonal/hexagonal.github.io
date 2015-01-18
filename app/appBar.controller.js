@@ -5,13 +5,14 @@
     .module('hexangular')
     .controller('AppBarCtrl', AppBarCtrl);
   
-  AppBarCtrl.$inject = ['page', '$mdSidenav'];
-  function AppBarCtrl(page, $mdSidenav) {
+  AppBarCtrl.$inject = ['page'];
+  function AppBarCtrl(page) {
     var vm = this;
     
     vm.page = page;
-    vm.toggleNavDrawer = function () {
-      return $mdSidenav('navDrawer').toggle();
+    
+    vm.toggleNav = function () {
+      page.toggleNav();
     };
   }
 })();
