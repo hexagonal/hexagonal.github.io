@@ -35,10 +35,9 @@
     <script src="app/app.config.js"></script>
     <script src="app/app.route.js"></script>
     <script src="app/page.service.js"></script>
-    <script src="app/storage.service.js"></script>
+    <script src="app/auth.service.js"></script>
     <script src="app/main.controller.js"></script>
     <script src="app/appBar.controller.js"></script>
-    <script src="app/codebreaker/codebreaker.controller.js"></script>
   </head>
   <body>
     <!-- Example Angular Material toolbar -->
@@ -57,7 +56,8 @@
       </md-toolbar>
       <md-sidenav md-component-id="navDrawer">
         <div layout="column">
-          <md-button ng-click="main.login()">Login</md-button>
+          <md-button ng-hide="main.signedIn" ng-click="main.signIn()">Sign in</md-button>
+          <md-button ng-show="main.signedIn" ng-click="main.signOut()">Sign out</md-button>
           <md-divider></md-divider>
           <md-button href="codebreaker">Codebreaker</md-button>
           <md-divider></md-divider>

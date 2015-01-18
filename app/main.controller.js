@@ -5,24 +5,28 @@
     .module('hexangular')
     .controller('MainCtrl', MainCtrl);
   
-  MainCtrl.$inject = ['$window', '$firebase', '$firebaseAuth', 'page'];
-  function MainCtrl($window, $firebase, $firebaseAuth, page) {
+  MainCtrl.$inject = ['auth',];
+  function MainCtrl(auth) {
     var vm = this;
-    vm.page = page;
+    vm.signedIn = false;
     
-    vm.login = function() {
-      var ref = new $window.Firebase('https://hexagonal.firebaseio.com/data');
-      var auth = $firebaseAuth(ref);
-
-      auth.$authWithOAuthPopup('google')
-      
-        .then(function(authData) {
+    vm.signIn = function() {
+      auth
+        .signIn()
+        
+        .then(function (authData) {
           console.log('Logged in as:', authData);
+          vm.signedIn = true;
         })
       
-        .catch(function(error) {
-          console.error('Authentication failed: ', error);
-        });      
+        .catch(function (error) {
+          vm.signedIn = false;
+        });
+    };
+    
+    vm.signOut = function() {
+      auth.signOut();
+      vm.signedIn = false;
     };
   }
 })();
