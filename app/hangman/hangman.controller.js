@@ -5,8 +5,8 @@
     .module('hexangular')
     .controller('HangmanCtrl', HangmanCtrl);
   
-  HangmanCtrl.$inject = ['page'];
-  function HangmanCtrl(page) {
+  HangmanCtrl.$inject = ['firebaseRef', 'page', '$firebase'];
+  function HangmanCtrl(firebaseRef, page, $firebase) {
     var vm = this;
     page.title = 'Hangman';
     page.closeNav();

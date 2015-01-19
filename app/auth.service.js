@@ -5,18 +5,15 @@
     .module('hexangular')
     .factory('auth', auth);
   
-  auth.$inject = ['$window', '$firebaseAuth','$q'];
-  function auth($window, $firebaseAuth, $q) {
-    var fbUrl = 'https://hexagonal.firebaseio.com';
-    
+  auth.$inject = ['firebaseRef', '$firebaseAuth','$q'];
+  function auth(firebaseRef, $firebaseAuth, $q) {    
     var vm = {
       signIn: signIn,
       signOut: signOut
     };
     
     function signIn() {
-      var fbRef = new $window.Firebase(fbUrl);
-      var fbAuth = $firebaseAuth(fbRef);
+      var fbAuth = $firebaseAuth(firebaseRef);
       var defer = $q.defer();
 
       fbAuth.$authWithOAuthPopup('google')
@@ -33,9 +30,7 @@
     }
     
     function signOut() {
-      var fbRef = new $window.Firebase(fbUrl);
-      var fbAuth = $firebaseAuth(fbRef);      
-      fbAuth.$unauth();
+      $firebaseAuth(firebaseRef).$unauth();
     }
     
     return vm;
