@@ -5,15 +5,15 @@
     .module('hexangular')
     .factory('auth', auth);
   
-  auth.$inject = ['firebaseRef', '$firebaseAuth','$q'];
-  function auth(firebaseRef, $firebaseAuth, $q) {    
+  auth.$inject = ['appRef', '$firebaseAuth','$q'];
+  function auth(appRef, $firebaseAuth, $q) {    
     var vm = {
       signIn: signIn,
       signOut: signOut
     };
     
     function signIn() {
-      var fbAuth = $firebaseAuth(firebaseRef);
+      var fbAuth = $firebaseAuth(appRef);
       var defer = $q.defer();
 
       fbAuth.$authWithOAuthPopup('google')
@@ -30,7 +30,7 @@
     }
     
     function signOut() {
-      $firebaseAuth(firebaseRef).$unauth();
+      $firebaseAuth(appRef).$unauth();
     }
     
     return vm;
