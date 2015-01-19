@@ -21,12 +21,12 @@
         controllerAs: 'about'
       })
     
-//      .when('/codebreaker', {
-//        templateUrl: 'app/codebreaker/codebreaker.html',
-//        controller: CodebreakerCtrl,
-//        controllerAs: 'codebreaker'
-//      })
-//    
+      .when('/hangman', {
+        templateUrl: 'app/hangman/hangman.html',
+        controller: 'HangmanCtrl',
+        controllerAs: 'hangman'
+      })
+       
       .otherwise('/');
   }
   
