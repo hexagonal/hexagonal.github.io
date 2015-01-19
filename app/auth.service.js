@@ -26,7 +26,6 @@
         })
       
         .catch(function(error) {
-          console.error('Authentication failed: ', error);
           return defer.reject(error);
         });
       

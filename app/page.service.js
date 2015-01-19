@@ -5,13 +5,15 @@
     .module('hexangular')
     .factory('page', page);
   
-  page.$inject = ['$mdSidenav'];
-  function page($mdSidenav) {
+  page.$inject = ['$log', '$mdSidenav', '$mdToast'];
+  function page($log, $mdSidenav, $mdToast) {
     var vm = {
       title: '',
       toggleNav: toggleNav,
       openNav: openNav,
-      closeNav: closeNav
+      closeNav: closeNav,
+      showError: showError,
+      showToast: showToast
     };
     
     var mainNavId = 'mainNav';
@@ -26,6 +28,15 @@
     
     function closeNav() {
       $mdSidenav(mainNavId).close();
+    }
+    
+    function showError(error) {
+      showToast(error);
+    }
+    
+    function showToast(msg) {
+      $log.log(msg);
+      $mdToast.show($mdToast.simple().content(msg));
     }
     
     return vm;

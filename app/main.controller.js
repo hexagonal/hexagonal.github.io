@@ -16,14 +16,15 @@
         .signIn()
         
         .then(function (authData) {
-          console.log('Logged in as:', authData);
           vm.signedIn = true;
           page.closeNav();
+          page.showToast('Signed in');
         })
       
         .catch(function (error) {
           vm.signedIn = false;
           page.closeNav();
+          page.showError(error);
         });
     };
     
@@ -31,6 +32,7 @@
       auth.signOut();
       vm.signedIn = false;
       page.closeNav();
+      page.showToast('Signed out');
     }; 
   }
 })();
