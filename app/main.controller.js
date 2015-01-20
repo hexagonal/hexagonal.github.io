@@ -16,21 +16,22 @@
         .signIn()
         
         .then(function (authData) {
-          vm.signedIn = true;
-          page.closeNav();
           page.showToast('Signed in');
         })
       
         .catch(function (error) {
-          vm.signedIn = false;
-          page.closeNav();
           page.showError(error);
+        })
+      
+        .finally(function () {
+          vm.signedIn = auth.signedIn;
+          page.closeNav();
         });
     };
     
     vm.signOut = function() {
       auth.signOut();
-      vm.signedIn = false;
+      vm.signedIn = auth.signedIn;
       page.closeNav();
       page.showToast('Signed out');
     }; 

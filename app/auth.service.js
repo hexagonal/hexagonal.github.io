@@ -9,7 +9,9 @@
   function auth(appRef, $firebaseAuth, $q) {    
     var vm = {
       signIn: signIn,
-      signOut: signOut
+      signOut: signOut,
+      signedIn: false,
+      userId: ''
     };
     
     function signIn() {
@@ -19,10 +21,14 @@
       fbAuth.$authWithOAuthPopup('google')
       
         .then(function(authData) {
-          return defer.resolve(authData);
+          vm.signedIn = true;
+          vm.userId = authData.uid;
+          return defer.resolve(vm);
         })
       
         .catch(function(error) {
+          vm.signedIn = false;
+          vm.userId = '';        
           return defer.reject(error);
         });
       
@@ -30,6 +36,8 @@
     }
     
     function signOut() {
+      vm.signedIn = false;
+      vm.userId = '';      
       $firebaseAuth(appRef).$unauth();
     }
     
