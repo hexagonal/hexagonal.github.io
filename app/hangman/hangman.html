@@ -1,3 +1,10 @@
-<md-content class="md-padding">
-This is the Hangman page.
+<md-content class="md-padding" ng-cloak>
+  <md-subheader>Games</md-subheader>
+  <md-list>
+    <md-item ng-repeat="game in hangman.recentGames">
+      <md-item-content>
+        <md-button ng-href="/hangman/games/{{::game.$id}}">By {{::game.creator}}</md-button>        
+      </md-item-content>
+    </md-item>
+  </md-list>
 </md-content>

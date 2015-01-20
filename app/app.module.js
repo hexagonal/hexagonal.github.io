@@ -12,8 +12,10 @@
   
   config.$inject = ['$locationProvider'];
   function config($locationProvider) {
-    $locationProvider.html5Mode(true);
-  }  
+    $locationProvider
+      .html5Mode(false)
+      .hashPrefix('!');
+  }
   
   appRef.$inject = ['$window'];
   function appRef($window) {

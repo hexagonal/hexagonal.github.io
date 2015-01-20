@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     
     <!-- The "perfect" viewport (according to PPK) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <base href="/">    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
     <title>Hexagonal Empire</title>
+    
+    <base href='/'>
     
     <!-- Roboto font -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic">
@@ -37,6 +37,7 @@
     <script src="app/auth.service.js"></script>
     <script src="app/main.controller.js"></script>
     <script src="app/appBar.controller.js"></script>
+    <script src="app/hangman/hangmanStorage.service.js"></script>
     <script src="app/hangman/hangman.controller.js"></script>
   </head>
   <body>
@@ -59,10 +60,10 @@
           <md-button ng-hide="main.signedIn" ng-click="main.signIn()">Sign in</md-button>
           <md-button ng-show="main.signedIn" ng-click="main.signOut()">Sign out</md-button>
           <md-divider></md-divider>
-          <md-button href="hangman">Hangman</md-button>
+          <md-button href="#!/hangman">Hangman</md-button>
           <md-divider></md-divider>
-          <md-button href="home">Home</md-button>
-          <md-button href="about">About</md-button>
+          <md-button href="#!/home">Home</md-button>
+          <md-button href="#!/about">About</md-button>
         </div>
       </md-sidenav>
       <ng-view></ng-view>
