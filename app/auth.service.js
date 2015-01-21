@@ -5,24 +5,38 @@
     .module('hexangular')
     .factory('auth', auth);
   
-  auth.$inject = ['appRef', '$firebaseAuth','$q'];
-  function auth(appRef, $firebaseAuth, $q) {    
+  auth.$inject = ['appRef', '$firebase', '$firebaseAuth','$q'];
+  function auth(appRef, $firebase, $firebaseAuth, $q) {    
     var vm = {
       signIn: signIn,
       signOut: signOut,
       signedIn: false,
-      userId: ''
+      userId: '',
+      username: ''
     };
     
     function signIn() {
-      var fbAuth = $firebaseAuth(appRef);
       var defer = $q.defer();
+      var usersRef = appRef.child('users');
+
+      var fbAuth = $firebaseAuth(appRef);  
 
       fbAuth.$authWithOAuthPopup('google')
       
         .then(function(authData) {
           vm.signedIn = true;
-          vm.userId = authData.uid;
+          vm.userId = authData.uid;        
+        
+          var userRef = usersRef.child(authData.uid);
+          var usernameRef = userRef.child('name');
+          return $firebase(usernameRef)
+            .$asObject()
+            .$loaded();
+        })
+      
+        .then(function(usernameObj) {
+          vm.username = usernameObj.$value;
+          console.log(vm);
           return defer.resolve(vm);
         })
       
