@@ -23,26 +23,26 @@
 
       fbAuth.$authWithOAuthPopup('google')
       
-        .then(function(authData) {
+        .then(function(authData) {        
           vm.signedIn = true;
-          vm.userId = authData.uid;        
+          vm.userId = authData.uid;               
         
           var userRef = usersRef.child(authData.uid);
-          var usernameRef = userRef.child('name');
+          var usernameRef = userRef.child('username');
           return $firebase(usernameRef)
             .$asObject()
             .$loaded();
         })
       
-        .then(function(usernameObj) {
+        .then(function(usernameObj) {      
           vm.username = usernameObj.$value;
-          console.log(vm);
           return defer.resolve(vm);
         })
       
         .catch(function(error) {
           vm.signedIn = false;
-          vm.userId = '';        
+          vm.userId = '';
+          vm.username = '';
           return defer.reject(error);
         });
       

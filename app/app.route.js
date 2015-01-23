@@ -21,6 +21,13 @@
         controllerAs: 'about'
       })
     
+      .when('/users/:userId', {
+        templateUrl: 'app/user/user.html',
+        controller: 'UserCtrl',
+        controllerAs: 'user',
+        resolve: { userInit: userInit }
+      })
+    
       .when('/hangman', {
         templateUrl: 'app/hangman/hangman.html',
         controller: 'HangmanCtrl',
@@ -28,6 +35,12 @@
       })
        
       .otherwise('/');
+  }
+  
+  userInit.$inject = ['userStorage', '$route'];
+  function userInit(userStorage, $route) {
+    var userId = $route.current.params.userId;
+    return userStorage.load(userId);
   }
   
   HomeCtrl.$inject = ['page'];
