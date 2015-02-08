@@ -22,7 +22,7 @@
       })
     
       .when('/users/:userId', {
-        templateUrl: 'app/user/user.html',
+        templateUrl: 'app/users/user.html',
         controller: 'UserCtrl',
         controllerAs: 'user',
         resolve: { userInit: userInit }

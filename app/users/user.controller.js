@@ -11,6 +11,9 @@
     page.title = 'User';
     page.closeNav();
     
+    console.log(userInit);
+    console.log(userInit.username);
+    
     vm.username = userInit.username;
   }
 })();
