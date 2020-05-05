@@ -33,6 +33,4 @@ function getBinaryPowers(x) {
     return powers
 }
 
-onmessage = function (e) {
-    postMessage(fib(e.data).toLocaleString())
-}
+onmessage = e => postMessage(fib(e.data).toLocaleString())
