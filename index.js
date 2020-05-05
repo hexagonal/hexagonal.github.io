@@ -9,3 +9,4 @@ const onChange = () => worker.postMessage(Number(fibInput.value))
 
 onChange()
 fibInput.onchange = onChange
+fibInput.onblur = onChange
