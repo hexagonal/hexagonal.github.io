@@ -1,19 +1,43 @@
 <!doctype html>
 <html>
-  <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hexagonal Info</title>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-  <style>
-    h1       {font-family: 'Josefin Sans', sans-serif; font-size: 36px; }
-    p, input {font-family: 'Josefin Sans', sans-serif; font-size: 24px; }
-  </style>
-  <script defer src="index.js"></script>
-  </head>
-  <body>
-    <h1>Hexagonal Info</h1>
-    <p>Which fibonacci number?</p>
-    <input id="fibInput" type="number" min="1" max="2000000" value="1">
-    <p id="fibOutput" style="word-wrap: break-word; max-width: 50em;"></p>
-   </body>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hexagonal Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 36px;
+        }
+
+        p,
+        input {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 24px;
+        }
+
+        #fibInput {
+            width: 150px;
+        }
+
+        main {
+            margin-top: 24px;
+            margin-left: 24px;
+            margin-right: 24px;
+            margin-bottom: 24px;
+        }
+    </style>
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Hexagonal Info</h1>
+        <p>Which fibonacci number?</p>
+        <input id="fibInput" type="number" min="1" max="2000000" value="1">
+        <p id="fibOutput" style="word-wrap: break-word; max-width: 50em;"></p>
+    </main>
+</body>
+
 </html>
